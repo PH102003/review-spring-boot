@@ -18,5 +18,5 @@
 
 5. **BONUS - Dto (data transfer object):** serve para transportar os dados do mundo real para dentro da aplicação. Permite que você escolha quais campos (ex.: brandCar...) podem ser enviados pelo usuário.
 
-* @Valid funciona como validação das anotações (@NotBlank, @Size...) no ParkingSpotDto.
+* @Valid funciona como validação das anotações (@NotBlank, @Size...) como no ParkingSpotDto, por exemplo.
 
