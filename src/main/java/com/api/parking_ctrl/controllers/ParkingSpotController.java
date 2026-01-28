@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 
 import org.springframework.beans.BeanUtils;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -30,12 +31,11 @@ public class ParkingSpotController {
 
     @PostMapping
     // Lógica para salvar a vaga de estacionamento
-    public ResponseEntity<Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDto parkingSpotDto) {
+    public ResponseEntity <Object> saveParkingSpot(@RequestBody @Valid ParkingSpotDto parkingSpotDto) {
         var parkingSpotModel = new ParkingSpotModel();
         //dto vai virar um model
         BeanUtils.copyProperties(parkingSpotDto, parkingSpotModel);
         parkingSpotModel.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC")));
-        
-        return ResponseEntity.status(201).body("Parking spot created successfully.");
-}
+//salva o 'parking spot' no banco de dados, viabilizado pelo protocolo HTTP          
+return ResponseEntity.status(HttpStatus.CREATED).body(parkingSpotService.save(parkingSpotModel));}
 }

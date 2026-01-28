@@ -7,10 +7,10 @@ spring:
     password: Tu@irm@5@f@d@
     driver-class-name: org.postgresql.Driver
   # JPA / Hibernate Configuration
-  # vou deixar create-drop para testar, mas em produção deve ser alterado para validate (vem inicialmente como update)
+  # vou deixar update, mas em produção é bom considerar o 'validate' 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
