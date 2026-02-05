@@ -6,6 +6,7 @@ spring:
     username: postgres
     password: Tu@irm@5@f@d@
     driver-class-name: org.postgresql.Driver
+
   # JPA / Hibernate Configuration
   # vou deixar update, mas em produção é bom considerar o 'validate' 
   jpa:
@@ -16,3 +17,4 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         '[format_sql]': true
+        
