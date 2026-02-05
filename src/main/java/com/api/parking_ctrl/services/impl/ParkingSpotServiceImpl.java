@@ -1,6 +1,9 @@
 package com.api.parking_ctrl.services.impl;
 
-import org.hibernate.mapping.List;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -25,6 +28,8 @@ public class ParkingSpotServiceImpl implements ParkingSpotService {
     @Override
     @Transactional
     public ParkingSpotModel save(ParkingSpotModel parkingSpotModel) {
+        //validar regras de negócio antes de salvar a vaga
+        checkBusinessRules(parkingSpotModel);
         return parkingSpotRepository.save(parkingSpotModel);
     }
     
@@ -49,5 +54,15 @@ public class ParkingSpotServiceImpl implements ParkingSpotService {
     @Override
     public List <ParkingSpotModel> findAll() {
         return parkingSpotRepository.findAll();
+    }
+
+    @Override
+    public Optional<ParkingSpotModel> findById(UUID id) {
+        return parkingSpotRepository.findById(id);    
+    }
+    @Transactional
+    @Override
+    public void delete(ParkingSpotModel parkingSpotModel) {
+        parkingSpotRepository.delete(parkingSpotModel);
     }
 }

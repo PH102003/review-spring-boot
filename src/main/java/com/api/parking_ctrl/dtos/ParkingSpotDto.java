@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Size;
 public class ParkingSpotDto {
     //verifica se o campo não é null/vazio
     @NotBlank
+    //número da vaga, idealmente, deve ter mesmo número do apartamento
     private String parkingSpotNumber;
     @NotBlank
     @Size(max = 7)

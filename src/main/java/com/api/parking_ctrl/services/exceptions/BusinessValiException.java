@@ -1,5 +1,8 @@
-package com.api.parking_ctrl.services.impl;
+package com.api.parking_ctrl.services.exceptions;
 
-public class BusinessValiException {
-
+// criando uma Exception personalizada para regras de negócio
+public class BusinessValiException extends RuntimeException{
+    public BusinessValiException (String message){
+        super (message);
+    }
 }

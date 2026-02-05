@@ -2,6 +2,8 @@ package com.api.parking_ctrl.services.validations;
 
 import com.api.parking_ctrl.dtos.ParkingSpotDto;
 import com.api.parking_ctrl.repositories.ParkingSpotRepository;
+import com.api.parking_ctrl.services.exceptions.BusinessValiException;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,7 +17,7 @@ public class PlateCollisionValidator {
 
     public void validate(ParkingSpotDto dto) {
         if (repository.existsByLicensePlateCar(dto.getLicensePlateCar())) {
-            throw new BusinessRuleException("Conflict: License Plate Car is already in use!");
+            throw new BusinessValiException ("Conflict: License Plate Car is already in use!");
         }
     }
 }
